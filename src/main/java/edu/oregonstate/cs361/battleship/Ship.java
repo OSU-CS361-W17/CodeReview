@@ -1,5 +1,7 @@
 package edu.oregonstate.cs361.battleship;
 
+import java.util.Random;
+
 /**
  * Created by michaelhilton on 1/5/17.
  */
@@ -71,4 +73,79 @@ public class Ship {
         }
         return false;
     }
+
+
+    public boolean randomlyPlaceAllShips(BattleshipModel bm){
+
+        Coordinate startCoor;
+        Coordinate endCoor;
+        int randRow = 0;
+        int randCol = 0;
+        Random random;
+
+        random = new Random();
+        randRow = random.nextInt(10 ) + 1;
+        randCol = random.nextInt(10 ) + 1;
+
+        startCoor = new Coordinate(randRow,randCol);
+        if(Math.random() < 0.5) {
+            endCoor = new Coordinate(randRow,randCol+5);
+        }else{
+            endCoor = new Coordinate(randRow+5,randCol);
+        }
+        bm.getShip("aircraftcarrier").setLocation(startCoor,endCoor);
+
+        random = new Random();
+        randRow = random.nextInt(10 ) + 1;
+        randCol = random.nextInt(10 ) + 1;
+
+        startCoor = new Coordinate(randRow,randCol);
+        if(Math.random() < 0.5) {
+            endCoor = new Coordinate(randRow,randCol+4);
+        }else{
+            endCoor = new Coordinate(randRow+4,randCol);
+        }
+        bm.getShip("battleship").setLocation(startCoor,endCoor);
+
+
+        random = new Random();
+        randRow = random.nextInt(10 ) + 1;
+        randCol = random.nextInt(10 ) + 1;
+
+        startCoor = new Coordinate(randRow,randCol);
+        if(Math.random() < 0.5) {
+            endCoor = new Coordinate(randRow,randCol+3);
+        }else{
+            endCoor = new Coordinate(randRow+3,randCol);
+        }
+        bm.getShip("cruiser").setLocation(startCoor,endCoor);
+
+        random = new Random();
+        randRow = random.nextInt(10 ) + 1;
+        randCol = random.nextInt(10 ) + 1;
+
+        startCoor = new Coordinate(randRow,randCol);
+        if(Math.random() < 0.5) {
+            endCoor = new Coordinate(randRow,randCol+2);
+        }else{
+            endCoor = new Coordinate(randRow+2,randCol);
+        }
+        bm.getShip("destroyer").setLocation(startCoor,endCoor);
+
+        random = new Random();
+        randRow = random.nextInt(10 ) + 1;
+        randCol = random.nextInt(10 ) + 1;
+
+        startCoor = new Coordinate(randRow,randCol);
+        if(Math.random() < 0.5) {
+            endCoor = new Coordinate(randRow,randCol+2);
+        }else{
+            endCoor = new Coordinate(randRow+2,randCol);
+        }
+        bm.getShip("submarine").setLocation(startCoor,endCoor);
+
+
+        return true;
+    }
+
 }

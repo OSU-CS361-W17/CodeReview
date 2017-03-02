@@ -1,7 +1,6 @@
 package edu.oregonstate.cs361.battleship;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -52,6 +51,25 @@ public class BattleshipModel {
         } else {
             return null;
         }
+    }
+
+    public boolean boundsConditional(String name, int length, Coordinate start, Coordinate end) {
+        if (length <= 1) {
+            return true;
+        }
+        if (start.getAcross() < 1 || start.getAcross() > 10) {
+            return false;
+        }
+        if (start.getDown() < 1 || start.getDown() > 10) {
+            return false;
+        }
+        if (end.getAcross() < 1 || end.getAcross() > 10) {
+            return false;
+        }
+        if (end.getDown() < 1 || end.getDown() > 10) {
+            return false;
+        }
+        return true;
     }
 
     public BattleshipModel placeShip(String shipName, String row, String col, String orientation) {

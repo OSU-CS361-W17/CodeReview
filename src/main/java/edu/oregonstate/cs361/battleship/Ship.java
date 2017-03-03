@@ -1,5 +1,7 @@
 package edu.oregonstate.cs361.battleship;
 
+import java.util.Random;
+
 /**
  * Created by michaelhilton on 1/5/17.
  */
@@ -71,4 +73,5 @@ public class Ship {
         }
         return false;
     }
+
 }
